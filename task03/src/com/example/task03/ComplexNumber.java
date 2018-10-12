@@ -23,6 +23,6 @@ public class ComplexNumber {
     }
 
     public String toString() {
-        return Re + (Im < 0 ? "-" : "+") + Im + "i";
+        return Re + (Im > 0 ? "+" : "-") + Im + "i";
     }
 }
