@@ -4,8 +4,8 @@ package com.example.task05;
  * Точка в двумерном пространстве
  */
 public class Point {
-    final double x;
-    final double y;
+    private final double x;
+    private final double y;
 
     /**
      * Конструктор, инициализирующий координаты точки

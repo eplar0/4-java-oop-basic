@@ -1,6 +1,7 @@
 package com.example.task05;
 
 import java.util.*;
+import java.lang.*;
 
 /**
  * Ломаная линия
@@ -26,7 +27,7 @@ public class PolygonalLine {
      * @param point точка, которую нужно добавить к ломаной
      */
     public void addPoint(Point point) {
-        Point point1 = new Point(point.getX(),point.getY());
+        Point point1 = new Point(point.getX(), point.getY());
         this.points.add(point1);
     }
 
@@ -48,8 +49,14 @@ public class PolygonalLine {
      */
     public double getLength() {
         double length = 0;
-        for (int i = 1; i < points.toArray().length; ++i) {
-            length += (points.get(i)).getLength(points.get(i - 1));
+        Iterator<Point> iter = points.iterator();
+        if (iter.hasNext()) {
+            Point P1 = iter.next();
+            while (iter.hasNext()) {
+                Point P2 = iter.next();
+                length += P1.getLength(P2);
+                P1 = P2;
+            }
         }
         return length;
     }
